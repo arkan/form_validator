@@ -56,7 +56,7 @@ isValidUsername := Custom(
 )
 
 // Use custom validation.
-username := v.String("username", Required, isValidUsername)
+username := v.String("username", form_validator.Required, isValidUsername)
 ```
 
 ### File Upload Validation
@@ -93,5 +93,5 @@ func handleImageUpload(w http.ResponseWriter, r *http.Request) {
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
