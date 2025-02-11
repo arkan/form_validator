@@ -26,8 +26,8 @@ func handleForm(w http.ResponseWriter, r *http.Request) {
     v := form_validator.NewHTTP(r)
     
     // Validate form fields.
-    username := v.String("username", Required, MinLength(3))
-    email := v.String("email", Required, Email)
+    username := v.String("username", form_validator.Required, form_validator.MinLength(3))
+    email := v.String("email", form_validator.Required, form_validator.Email)
     age := v.Int("age")
     
     // Validate file upload.
@@ -65,7 +65,7 @@ username := v.String("username", Required, isValidUsername)
 func handleImageUpload(w http.ResponseWriter, r *http.Request) {
     v := form_validator.NewHTTP(r)
     
-    // Configure image validation
+    // Configure image validation.
     config := form_validator.ImageConfig(
         5 * form_validator.MB,  // Max size: 5MB.
         "jpg", "png", "webp",  // Allowed formats.
